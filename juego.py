@@ -2,9 +2,7 @@ import pygame
 import sys
 from personaje import *
 
-
 pygame.init()
-
 
 jugador = jugador(0,550)
 
