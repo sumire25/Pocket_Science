@@ -1,23 +1,29 @@
 import pygame, sys
+from interfaz import *
 from boton import Button
 
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1280, 620))
 pygame.display.set_caption("Menu")
+
 rosa =(255, 192, 203)
 verde=(0, 157, 113)
 
-BG = pygame.image.load("D:/python/archi/imagenes/Fondo_1.1.png")
+BG = pygame.image.load("sprites/Fondo_1.1.png")
+
+class Menu(Interfaz):
+    def __init__(self):
+        pass
 
 def get_font(size): # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("D:/python/archi/fuente/Julee-Regular.ttf", size)
+        return pygame.font.Font("fuentes/Julee-Regular.ttf", size)
 
 def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
-        SCREEN.fill("black")
+        SCREEN.blit(BG, (0, 0))
 
         PLAY_TEXT = get_font(50).render("This is the PLAY screen.", True, "White")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 280))
@@ -74,12 +80,12 @@ def main_menu():
         MENU_TEXT = get_font(90).render("Mujeres al mando ", True,verde)
         MENU_RECT = MENU_TEXT.get_rect(center=(640, 185))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/iniciosinletra.png"), pos=(640, 350), 
+        PLAY_BUTTON = Button(image=pygame.image.load("sprites/iniciosinletra.png"), pos=(640, 350), 
                             text_input="inicio", font=get_font(45), base_color=rosa, hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/cerrarsinletra.png"), pos=(640, 450), 
-                            text_input="cerrar", font=get_font(45), base_color=rosa, hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/opcionessinletra.png"), pos=(640, 550), 
-                            text_input="opciones", font=get_font(35), base_color=rosa, hovering_color="White")
+        OPTIONS_BUTTON = Button(image=pygame.image.load("sprites/opcionessinletra.png"), pos=(640, 450), 
+                            text_input="opciones", font=get_font(45), base_color=rosa, hovering_color="White")
+        QUIT_BUTTON = Button(image=pygame.image.load("sprites/cerrarsinletra.png"), pos=(640, 550), 
+                            text_input="cerrar", font=get_font(35), base_color=rosa, hovering_color="White")
 
         SCREEN.blit(MENU_TEXT, MENU_RECT)
 

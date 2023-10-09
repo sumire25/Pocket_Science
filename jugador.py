@@ -7,7 +7,7 @@ class Jugador(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.velocidad = 1
+        self.velocidad = 3
         self.rect.h *= 4
         self.rect.w *= 4
 

@@ -1,7 +1,7 @@
 from interfaz import *
 from escenario import *
 
-class Juego(Interfaz):
+class Menu(Interfaz):
     def __init__(self, mediator):
         super().__init__(mediator)
         self.pausa = False
@@ -13,7 +13,7 @@ class Juego(Interfaz):
         if not self.pausa:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    self.mediator.notify("menu")
+                    self.mediator.notify("juego")
                     #self.jugador.accionar()
                     print("Espacio presionado")
         else:
