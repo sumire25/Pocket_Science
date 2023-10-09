@@ -1,6 +1,7 @@
 import pygame
 from juego import *
 from menu import *
+from play import *
 
 class Programa:
     def __init__(self):
@@ -23,7 +24,7 @@ class Programa:
             self.interfaz.update()
             #dibujar
             self.interfaz.draw()
-            self.screen.blit(pygame.transform.flip(self.interfaz, True, True),(0,0))
+            self.screen.blit(self.interfaz,(0,0))
 
             pygame.display.flip()
             self.clock.tick(60)
@@ -37,6 +38,12 @@ class Programa:
         if str == "menu":
             print("modo menu")
             self.interfaz = Menu(self)
-        if str == "juego":
+        elif str == "juego":
             print("modo juego")
             self.interfaz = Juego(self)
+        elif str == "play":
+            self.interfaz = Play(self)
+        elif str == "options":
+            self.interfaz = Juego(self)
+        elif str == "exit":
+            self.running = False

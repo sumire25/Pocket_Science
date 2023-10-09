@@ -1,5 +1,6 @@
 import pygame
 import sys
+from interfaz import *
 from boton import Button  # Assuming 'Button' is a custom class from 'boton' module
 
 # Initialize pygame
@@ -12,15 +13,16 @@ rosa = (255, 192, 203)
 verde = (0, 157, 113)
 
 # Load images
-BG = pygame.image.load("D:/python/archi/imagenes/Fondo_1.1.png")
-panta1 = pygame.image.load("D:/python/archi/imagenes/fondo3.png")
+BG = pygame.image.load("sprites/Fondo_1.1.png")
+panta1 = pygame.image.load("sprites/fondo3.png")
 
 # Function to get fonts
 def get_font(size):
-    return pygame.font.Font("D:/python/archi/fuente/JUA.ttf", size)
+    return pygame.font.Font("fuentes/JUA.ttf", size)
 
-class Play:
-    def __init__(self):
+class Play(Interfaz):
+    def __init__(self, mediator):
+        super().__init__(mediator)
         self.screen = pygame.display.set_mode((1280, 620))
         self.clock = pygame.time.Clock()
         self.running = True
@@ -118,9 +120,10 @@ class Play:
     def main_menu(self):
         pass  # Implement the functionality to return to the main menu
 
-class astro:
+class astro(Interfaz):
     
-    def __init__(self):
+    def __init__(self, mediator):
+        super().__init__(mediator)
         self.screen = pygame.display.set_mode((1280, 620))
         self.clock = pygame.time.Clock()
         self.running = True
@@ -152,7 +155,7 @@ class astro:
         astro_back.changeColor(astro_mouse_pos)
         astro_back.update(self.screen)
         
-
+####################################################
 class OptionsScreen:
     def __init__(self, screen):
         self.screen = screen
@@ -188,9 +191,10 @@ class OptionsScreen:
         pygame.display.update()
 
     def get_font(self, size):
-        return pygame.font.Font("D:/python/archi/fuente/JUA.ttf", size)
+        return pygame.font.Font("fuentes/JUA.ttf", size)
+####################################################
 
-def main_menu():
+class Menu():
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -199,11 +203,11 @@ def main_menu():
         MENU_TEXT = get_font(90).render("Mujeres al Mando", True, verde)
         MENU_RECT = MENU_TEXT.get_rect(center=(640, 185))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/iniciosinletra.png"), pos=(640, 350),
+        PLAY_BUTTON = Button(image=pygame.image.load("sprites/iniciosinletra.png"), pos=(640, 350),
                              text_input="Inicio", font=get_font(45), base_color=rosa, hovering_color=(255, 255, 255))
-        OPTIONS_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/opcionessinletra.png"), pos=(640, 450),
+        OPTIONS_BUTTON = Button(image=pygame.image.load("sprites/opcionessinletra.png"), pos=(640, 450),
                                 text_input="Opciones", font=get_font(35), base_color=rosa, hovering_color=(255, 255, 255))
-        QUIT_BUTTON = Button(image=pygame.image.load("D:/python/archi/imagenes/cerrarsinletra.png"), pos=(640, 550),
+        QUIT_BUTTON = Button(image=pygame.image.load("sprites/cerrarsinletra.png"), pos=(640, 550),
                              text_input="Cerrar", font=get_font(45), base_color=rosa, hovering_color=(255, 255, 255))
 
         SCREEN.blit(MENU_TEXT, MENU_RECT)
@@ -231,5 +235,3 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
-
-        

@@ -1,3 +1,16 @@
+import pygame
+
+# Set up the screen
+rosa = (255, 192, 203)
+verde = (0, 157, 113)
+
+# Load images
+BG = pygame.image.load("sprites/Fondo_1.1.png")
+panta1 = pygame.image.load("sprites/fondo3.png")
+
+def get_font(size):
+    return pygame.font.Font("fuentes/JUA.ttf", size)
+
 class Button():
 	def __init__(self, image, pos, text_input, font, base_color, hovering_color):
 		self.image = image
