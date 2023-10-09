@@ -11,7 +11,7 @@ class Programa:
         self.running = True
 
         # interfaz mostrada en ventana
-        self.interfaz = Juego(self)
+        self.interfaz = Menu(self)
 
         # nose
         self.clock = pygame.time.Clock()

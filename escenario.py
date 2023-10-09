@@ -3,8 +3,8 @@ from jugador import *
 class Escenario(pygame.Surface):
     def __init__(self):
         super().__init__((1280, 720))
-        self.mapa = pygame.image.load("sprites/fondo.jpg").convert()
-        self.jugador = Jugador(100, 100)
+        self.mapa = pygame.image.load("sprites/fondo.png").convert()
+        self.jugador = Jugador(50, 550)
 
         self.entidades = pygame.sprite.Group(self.jugador)
         
