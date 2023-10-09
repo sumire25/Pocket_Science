@@ -4,7 +4,7 @@ from boton import *
 class Menu(Interfaz):
     def __init__(self, mediator):
         super().__init__(mediator)
-        self.MENU_TEXT = get_font(90).render("Mujeres al Mando", True, verde)
+        self.MENU_TEXT = get_font(90).render("Scully Pocket", True, verde)
         self.MENU_RECT = self.MENU_TEXT.get_rect(center=(640, 185))
         self.PLAY_BUTTON = Button(image=pygame.image.load("sprites/iniciosinletra.png"), pos=(640, 350),
                              text_input="Inicio", font=get_font(45), base_color=rosa, hovering_color=(255, 255, 255))

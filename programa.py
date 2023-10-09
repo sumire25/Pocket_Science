@@ -7,7 +7,7 @@ class Programa:
     def __init__(self):
         # ventana
         self.screen = pygame.display.set_mode((1280, 720))
-        pygame.display.set_caption("Mujeres en la ciencia")
+        pygame.display.set_caption("Scully Pocket")
         self.running = True
 
         # interfaz mostrada en ventana
